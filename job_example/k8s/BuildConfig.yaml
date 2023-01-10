@@ -1,0 +1,29 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: job-example
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: job-example:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: job_example
+    git:
+      ref: master
+      uri: https://code.private.opequon.net/cfh/batch_job_templates.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      env:
+      - name: GIT_SSL_NO_VERIFY
+        value: "true"
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - type: ConfigChange

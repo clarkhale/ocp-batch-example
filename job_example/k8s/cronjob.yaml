@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: testjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: testjob
+            image: image-registry.openshift-image-registry.svc:5000/batchexample/batchtools:latest
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: script-config
+              mountPath: "/scripts/config"
+            - name: script-secret
+              mountPath: "/scripts/secret"
+          restartPolicy: OnFailure
+          volumes:
+          - name: script-config
+            configMap:
+              name: testjobconfig
+          - name: script-secret
+            secret:
+              secretName: testjobsecret

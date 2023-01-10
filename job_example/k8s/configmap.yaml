@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: testjobconfig
+data:
+  CONFIG: |
+    DB2_UID=myuserid
+    OTHERPARAM1=value1
