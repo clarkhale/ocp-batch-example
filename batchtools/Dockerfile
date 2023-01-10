@@ -1,4 +1,4 @@
-From ubi8
+From ubi8-minimal
 
 USER 0 
 
