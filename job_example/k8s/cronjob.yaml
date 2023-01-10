@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: testjob
-            image: image-registry.openshift-image-registry.svc:5000/batchexample/batchtools:latest
+            image: image-registry.openshift-image-registry.svc:5000/batchexample/job-example:latest
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: script-config
