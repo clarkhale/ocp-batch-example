@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. /scripts/configmap/config
-. /scripts/secrets/config
+. /scripts/config/CONFIG
+#. /scripts/secrets/config
 
 if [ -e /scripts/mainscript.sh ] ; then
   . /scripts/mainscript.sh
