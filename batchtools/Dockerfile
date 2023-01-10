@@ -1,8 +1,8 @@
-From ubi8-minimal
+From ubi8
 
 USER 0 
 
-RUN microdnf -y install --nodocs tree && microdnf clean all
+RUN yum -y install --nodocs tree && yum clean all
 RUN mkdir /scripts && chown 1001:root /scripts
 
 WORKDIR /scripts
